@@ -67,16 +67,8 @@ class Detail extends React.Component {
     })
   }
 
-  showCommits() {
-    this.setState({ mode: 'commits' })
-  }
-
-  showForks() {
-    this.setState({ mode: 'forks'})
-  }
-
-  showPulls() {
-    this.setState({ mode: 'pulls'})
+  selectMode(mode) {
+    this.setState({ mode })
   }
 
   render() {
@@ -92,9 +84,9 @@ class Detail extends React.Component {
 
     return(
       <div>
-        <button onClick={this.showCommits.bind(this)} name="button">Show Commits</button>
-        <button onClick={this.showForks.bind(this)} name="button">Show Forks</button>
-        <button onClick={this.showPulls.bind(this)} name="button">Show Pulls</button>
+        <button onClick={this.selectMode.bind(this, 'commits')} name="button">Show Commits</button>
+        <button onClick={this.selectMode.bind(this, 'forks')} name="button">Show Forks</button>
+        <button onClick={this.selectMode.bind(this, 'pulls')} name="button">Show Pulls</button>
         {content}
       </div>
     )
