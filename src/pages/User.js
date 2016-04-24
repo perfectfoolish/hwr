@@ -9,6 +9,7 @@ class User extends React.Component {
             events: []
         };
     }
+
     componentWillMount() {
         ajax.get(`https://api.github.com/users/${this.props.params.user}/events`)
             .end((error, response) => {
