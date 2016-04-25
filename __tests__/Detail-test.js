@@ -20,4 +20,13 @@ describe('Detail', () => {
         );
         expect(rendered.state.mode).toEqual('commits');
     });
+
+    it('shows forks when the button is tapped', () => {
+        const rendered = TestUtils.renderIntoDocument(
+            <Detail params={{repo: ''}} />
+        );
+        const forksButton = rendered.refs.forks;
+        TestUtils.Simulate.click(forksButton);
+        expect(rendered.state.mode).toEqual('forks');
+    });
 });
