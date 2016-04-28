@@ -29,4 +29,30 @@ describe('Detail', () => {
         TestUtils.Simulate.click(forksButton);
         expect(rendered.state.mode).toEqual('forks');
     });
+
+    // it('fetches forks from Github', () => {
+    //     const rendered = TestUtils.renderIntoDocument(
+    //         <Detail params={{repo: 'react'}} />
+    //     );
+    //
+    //     waitsFor(() => {
+    //         console.log('In waitFor: ', rendered.state.forks.length);
+    //         return rendered.state.forks.length > 0;
+    //     }, "commits to be set", 2000);
+    //
+    //     runs(() => {
+    //         expect(rendered.state.forks.length).toEqual(30);
+    //     });
+    // });
+
+    it('fetches forks from a local source', () => {
+        const rendered = TestUtils.renderIntoDocument(
+            <Detail params={{repo: ''}} />
+        );
+
+        const testData = require('./forks.json');
+        rendered.setState({mode: 'forks', forks: testData});
+
+        expect(rendered.state.forks.length).toEqual(30);
+    });
 });
