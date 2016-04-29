@@ -51,8 +51,10 @@ describe('Detail', () => {
         );
 
         const testData = require('./forks.json');
-        rendered.setState({mode: 'forks', forks: testData});
+        rendered.saveFeed('forks', testData);
+        rendered.selectMode('forks');
 
-        expect(rendered.state.forks.length).toEqual(30);
+        const forks = TestUtils.scryRenderedDOMComponentsWithClass(rendered, 'github')
+        expect(forks.length).toEqual(30);
     });
 });
