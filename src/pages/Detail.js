@@ -103,4 +103,8 @@ class Detail extends React.Component {
   }
 }
 
+Detail.propTypes = {
+  params: React.PropTypes.object,
+};
+
 export default Detail;

@@ -47,4 +47,8 @@ class User extends React.Component {
   }
 }
 
+User.propTypes = {
+  params: React.PropTypes.object,
+};
+
 export default User;
